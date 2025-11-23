@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft support</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href = '{% url "problemslist" %}' >mainpage</a></li>
+                <li><a href = '#' >about us!</a></li>
+                {% if user.is_authenticated %}
+                <li><a href = '#'>log out {{user.username}}</a></li>
+                <li><a href = '{% url "history" %}' >Booking history</a></li>
+                {% else %}
+                <li><a>log in</a></li>
+                {% endif %}
+            </ul>
+
+
+
+        </nav>
+
+
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer></footer>
+</body>
+</html>

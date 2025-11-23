@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Probelsm List</h1>
+    <form method = 'post' action = '{% url "problemslist" %}'>
+        {% csrf_token %}
+        <select name = 'category'>
+            <option value = ''>choose category</option>
+            <option value = 'windows'>Windows problem</option>
+            <option value = 'account'>Account problem</option>
+            <option value = 'connection'>Connection problem</option>
+            <option value = 'update'>Update problem</option>
+            <option value = 'virus'>Virus installed </option>
+            <option value = 'other'>Other problems</option>
+
+
+        </select> 
+        <button type = "submit">choose</button>
+
+
+    </form>
+    {% for e in problems %}
+    <h3><a href = '{% url "bm" %}?problemid={{e.id}} '>{{ e.nameofproblem }}</a></h3>
+    <p>{{ e.descriptionofproblem  }}</p>
+    {% endfor %}
+
+{% endblock %}

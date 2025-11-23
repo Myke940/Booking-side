@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content  %}
+
+
+<h2>Your meetings</h2>
+<ol>
+{% for m in Meetings %}
+<li>
+    <p>Problem: {{ m.usedproblem }}</p>
+    <p>Date: {{ m.datetimemeet }}</p>
+    <p>Status: {{ m.status }}</p>
+
+
+
+</li>
+{% endfor %}
+
+</ol>
+
+
+
+{% endblock %}
